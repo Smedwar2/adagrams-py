@@ -38,7 +38,38 @@ def draw_letters():
 
 
 def uses_available_letters(word, letter_bank):
-    pass
+#two parameters: word and letter_bank
+#copy the letter bank so we dont modify the original list when we remove letters from it
+    working_bank = letter_bank.copy()   
+#convert the word to uppercase so we can compare it to the letter bank
+    word = word.upper()
+#check if input(word) can be formed using only letters from hand
+    for letter in word:
+        if  letter in working_bank:
+            working_bank.remove(letter)
+        else:
+            return False
+    return True
+    
+    #return True if word can be formed using letters from letter_bank, otherwise return False
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def score_word(word):
     pass
