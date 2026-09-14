@@ -113,4 +113,22 @@ def score_word(word):
 
 
 def get_highest_word_score(word_list):
-    pass
+    # looks at the list of word_list and 
+    # calculates which of these words has the highest score, 
+    # applies any tie-breaking logic, 
+    # and returns the winning word in a special data structure.
+    highest_score = 0
+    winning_word = ""
+    for word in word_list:
+        current_score = score_word(word)
+        #if the score is higher than the current highest score, update the highest score 
+        if current_score > highest_score:
+            highest_score = current_score
+            winning_word = word
+        elif current_score == highest_score:
+            if len(winning_word) != 10 and len(word) == 10:
+                winning_word = word
+            elif len(word) < len(winning_word) and len(winning_word) != 10:
+                winning_word = word
+    return (winning_word, highest_score)
+        
